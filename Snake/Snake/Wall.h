@@ -6,7 +6,6 @@
 
 class Wall
 {
-	
 	VerticalLine * verticalLine1, * verticalLine2;
 	HorizonLine* horizonLine1, * horizonLine2;
 

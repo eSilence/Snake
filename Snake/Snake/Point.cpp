@@ -40,10 +40,10 @@ Point Point::move(Direction direction, int count){
 	else moveLeft(count);
 	return *this;
 }
-bool Point::hitPoint(Point point){
-	return hit(point.x, point.y);
+bool Point::isHit(Point point){
+	return isHit(point.x, point.y);
 }
-bool Point::hit(int x, int y){
+bool Point::isHit(int x, int y){
 	return this->x == x && this->y == y;
 }
 void Point::drawPoint(char symbol){

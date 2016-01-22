@@ -12,23 +12,21 @@ int main(){
 	wall.draw();
 
 	Snake snake(Point(5,5,'*'),4, RIGHT);
-	/*for(int i = 0; i < 20; i++){
-		snake.draw();
-		Sleep(100);
-	}*/
 
 	unsigned char ch;
 	Direction direction;
 
     while (1){
-        ch = getch();
-        if (ch == 224) {
+		 if(kbhit()){
 			ch = getch();
-			direction = getDirection(ch);
-			snake.setDirection(direction);
+			if (ch == 224) {
+				ch = getch();
+				direction = getDirection(ch);
+				snake.setDirection(direction);
+			}
+		 }
 			snake.draw();
 			Sleep(100);
-        }
     }
 
 	system("Pause");

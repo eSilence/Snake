@@ -23,8 +23,8 @@ public:
 	Point move(Direction direction, int count);
 	void printPoint();
 	void clearPoint();
-	bool hitPoint(Point point);
-	bool hit(int x, int y);
+	bool isHit(Point point);
+	bool isHit(int x, int y);
 
 };
 
