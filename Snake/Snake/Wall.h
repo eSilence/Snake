@@ -12,6 +12,11 @@ class Wall
 public:
 	Wall(Point, int countX, int countY, char symbol);
 	void draw();
+	Point getUpLeftPoint();
+	Point getDownLeftPoint();
+	Point getUpRightPoint();
+	Point getDownRightPoint();
+
 	~Wall(void);
 };
 

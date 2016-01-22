@@ -10,6 +10,8 @@ public:
 	Snake(Point point, int length, Direction direction);
 	Point getNextPositionHead();
 	void setDirection(Direction direction);
+	void handleKey();
+	bool isfindFood(Point Food);
 	void draw();
 	~Snake(void);
 };

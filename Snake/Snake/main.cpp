@@ -2,8 +2,8 @@
 #include <Windows.h>
 #include "Snake.h"
 #include <conio.h>
+#include "Food.h"
 
-Direction getDirection(char);
 
 int main(){
 	
@@ -13,17 +13,18 @@ int main(){
 
 	Snake snake(Point(5,5,'*'),4, RIGHT);
 
-	unsigned char ch;
-	Direction direction;
+//	Direction direction;
+	Food food(&wall);
 
-    while (1){
+	food.createFood();
+
+	while (1){
+		if (snake.isfindFood(food.getPoint())){
+			food.createFood();
+			continue;
+		}
 		 if(kbhit()){
-			ch = getch();
-			if (ch == 224) {
-				ch = getch();
-				direction = getDirection(ch);
-				snake.setDirection(direction);
-			}
+			 snake.handleKey();
 		 }
 			snake.draw();
 			Sleep(100);
@@ -32,11 +33,3 @@ int main(){
 	system("Pause");
 }
 
-Direction getDirection(char ch){
-    switch(ch)  {
-		case 75: return LEFT; break;
-		case 77: return RIGHT; break;
-		case 72: return UP; break;
-		case 80: return DOWN; break;
-    }
-}

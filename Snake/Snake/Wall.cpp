@@ -16,7 +16,19 @@ void Wall::draw(){
 	verticalLine2->draw();
 	horizonLine2->draw();
 }
+Point Wall::getUpLeftPoint(){
+	return verticalLine1->getBegin();
+}
 
+Point Wall::getDownLeftPoint(){
+	return verticalLine1->getEnd();
+}
+Point Wall::getUpRightPoint(){
+	return verticalLine2->getBegin();
+}
+Point Wall::getDownRightPoint(){
+	return verticalLine2->getEnd();
+}
 Wall::~Wall(void)
 {
 	delete verticalLine1;
