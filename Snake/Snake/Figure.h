@@ -9,6 +9,7 @@ protected:
 	deque <Point> listPoint;
 public:
 	Figure(void);
+	int getLength(){return listPoint.size();}
 	~Figure(void);
 	void draw();
 };

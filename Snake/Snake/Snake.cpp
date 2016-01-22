@@ -39,8 +39,9 @@ void Snake::handleKey(){
 }
 bool Snake::isfindFood(Point food){
 	if (head.isHit(food)){
-		food.clearPoint();
+		//food.clearPoint();
 		head = Point(food.getX(), food.getY(), head.getSymbol());
+		head.printPoint();
 		listPoint.push_front(head);
 		return true;
 	}

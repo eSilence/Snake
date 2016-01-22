@@ -9,6 +9,7 @@ class Snake: public Figure
 public:
 	Snake(Point point, int length, Direction direction);
 	Point getNextPositionHead();
+	//int getLength(){return length;}
 	void setDirection(Direction direction);
 	void handleKey();
 	bool isfindFood(Point Food);

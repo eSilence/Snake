@@ -4,7 +4,7 @@
 #include <conio.h>
 #include "Food.h"
 
-
+void statistica(Wall*, int,int);
 int main(){
 	
 	Point upLeft(0,0);
@@ -13,13 +13,16 @@ int main(){
 
 	Snake snake(Point(5,5,'*'),4, RIGHT);
 
-//	Direction direction;
 	Food food(&wall);
+	int countFood = 0;
 
 	food.createFood();
+	statistica(&wall, snake.getLength(),  countFood);
 
 	while (1){
 		if (snake.isfindFood(food.getPoint())){
+			countFood++;
+			statistica(&wall, snake.getLength(),  countFood);
 			food.createFood();
 			continue;
 		}
@@ -32,4 +35,13 @@ int main(){
 
 	system("Pause");
 }
+void statistica(Wall* wall, int lengthSnake, int countFood){
+	Point point = wall->getDownLeftPoint();
+	COORD position = {point.getX()+2, point.getY()+2};    //позиция x и y
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+	SetConsoleCursorPosition(hConsole, position);
+	printf("lengthSnake= %d, countFood = %d", lengthSnake, countFood);
+}
+
 
