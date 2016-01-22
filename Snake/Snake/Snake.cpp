@@ -7,7 +7,6 @@ Snake::Snake(Point point, int length, Direction direction)
 	//this->length = length;
 	this->direction = direction;
 
-	//listPoint.push_back(head);
 	for(int i = 0; i < length; i++)
 		listPoint.push_back(Point(point.getX()-i, point.getY(), point.getSymbol()));
 	Figure::draw();
@@ -39,7 +38,6 @@ void Snake::handleKey(){
 }
 bool Snake::isfindFood(Point food){
 	if (head.isHit(food)){
-		//food.clearPoint();
 		head = Point(food.getX(), food.getY(), head.getSymbol());
 		head.printPoint();
 		listPoint.push_front(head);
