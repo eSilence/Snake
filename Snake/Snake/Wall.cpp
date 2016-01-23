@@ -1,38 +1,36 @@
 #include "Wall.h"
 
-
-
 Wall::Wall(Point point, int countX, int countY, char symbol)
 {
-	 verticalLine1 = new VerticalLine(point, countY, symbol);
-	 verticalLine2 = new  VerticalLine(point.moveRight(countX), countY, symbol);
-	 horizonLine1 = new HorizonLine(point.moveLeft(countX), countX, symbol);
-	 horizonLine2 = new HorizonLine(point.moveDown(countY), countX, symbol);
+	Figure Line;
+
+	Line = VerticalLine(point, countY, symbol);
+	listWall.push_back(Line);
+	Line =  VerticalLine(Point(point.getX()+countX,point.getY()), countY, symbol);
+	listWall.push_back(Line);
+	Line = HorizonLine(point, countX, symbol);
+	listWall.push_back(Line);
+	Line = HorizonLine(Point(point.getX(),point.getY()+countY), countX, symbol);
+	listWall.push_back(Line);
 }
 
 void Wall::draw(){
-	verticalLine1->draw();
-	horizonLine1->draw();
-	verticalLine2->draw();
-	horizonLine2->draw();
+	for(Figure figure: listWall)
+		figure.draw();
 }
 Point Wall::getUpLeftPoint(){
-	return verticalLine1->getBegin();
+	return listWall[0].getBegin();
 }
 
 Point Wall::getDownLeftPoint(){
-	return verticalLine1->getEnd();
+	return listWall[0].getEnd();
 }
 Point Wall::getUpRightPoint(){
-	return verticalLine2->getBegin();
+	return listWall[1].getBegin();
 }
 Point Wall::getDownRightPoint(){
-	return verticalLine2->getEnd();
+	return listWall[1].getEnd();
 }
 Wall::~Wall(void)
 {
-	delete verticalLine1;
-	delete horizonLine1;
-	delete verticalLine2;
-	delete horizonLine2;
 }
