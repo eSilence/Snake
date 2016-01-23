@@ -12,6 +12,16 @@ Wall::Wall(Point point, int countX, int countY, char symbol)
 	listWall.push_back(Line);
 	Line = HorizonLine(Point(point.getX(),point.getY()+countY), countX, symbol);
 	listWall.push_back(Line);
+	Line =  VerticalLine(Point(point.getX()+countX/2,point.getY()), countY/2, symbol);
+	listWall.push_back(Line);
+}
+
+bool Wall::isFindSnake(Figure snake){
+	for(Figure figure : listWall){
+		if (snake.isHit(figure))
+			return true;
+	}
+	return false;
 }
 
 void Wall::draw(){

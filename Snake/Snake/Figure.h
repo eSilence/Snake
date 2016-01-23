@@ -12,6 +12,8 @@ public:
 	int getLength(){return listPoint.size();}
 	Point getBegin(){return listPoint.front();}
 	Point getEnd(){return listPoint.back();}
+	bool isHit(Figure figure);
+	bool isHit(Point point);
 	~Figure(void);
 	void draw();
 };

@@ -1,6 +1,8 @@
 #pragma once
 #include "figure.h"
 #include "Direction.h"
+#include "Wall.h"
+
 class Snake: public Figure
 {
 	Point head;
@@ -10,7 +12,8 @@ public:
 	Point getNextPositionHead();
 	void setDirection(Direction direction);
 	void handleKey();
-	bool isfindFood(Point Food);
+	bool isFindFood(Point Food);
+	bool isHitTail();
 	void draw();
 	~Snake(void);
 };

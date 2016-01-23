@@ -28,21 +28,27 @@ void Snake::handleKey(){
 		if (ch == 224) {
 			ch = getch();
 			switch(ch)  {
-				case 75: direction =  LEFT; break;
-				case 77: direction =  RIGHT; break;
-				case 72: direction =  UP;	break;
-				case 80: direction =  DOWN; break;
+				case 75: if (direction!= RIGHT) direction =  LEFT; break;
+				case 77: if (direction!= LEFT) direction =  RIGHT; break;
+				case 72: if (direction!= DOWN) direction =  UP;	break;
+				case 80: if (direction!= UP) direction =  DOWN; break;
 			}
 			setDirection(direction);
 		}
 }
-bool Snake::isfindFood(Point food){
-	if (head.isHit(food)){
+bool Snake::isFindFood(Point food){
+	if (getNextPositionHead().isHit(food)){
 		head = Point(food.getX(), food.getY(), head.getSymbol());
 		head.printPoint();
 		listPoint.push_front(head);
 		return true;
 	}
+	return false;
+}
+bool Snake::isHitTail(){
+	for(int i = 1; i < listPoint.size(); i++)
+		if (head.isHit(listPoint[i]))
+			return true;
 	return false;
 }
 

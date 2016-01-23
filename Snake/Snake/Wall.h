@@ -6,9 +6,6 @@
 #include <vector>
 class Wall
 {
-	
-	/*VerticalLine * verticalLine1, * verticalLine2;
-	HorizonLine* horizonLine1, * horizonLine2;*/
 	vector <Figure> listWall; 
 
 public:
@@ -18,7 +15,7 @@ public:
 	Point getDownLeftPoint();
 	Point getUpRightPoint();
 	Point getDownRightPoint();
-
+	bool isFindSnake(Figure snake);
 	~Wall(void);
 };
 
