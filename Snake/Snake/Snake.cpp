@@ -4,7 +4,6 @@
 Snake::Snake(Point point, int length, Direction direction)
 {
 	this->head = point;
-	//this->length = length;
 	this->direction = direction;
 
 	for(int i = 0; i < length; i++)
@@ -43,6 +42,8 @@ bool Snake::isFindFood(Point food){
 		listPoint.push_front(head);
 		return true;
 	}
+	if (this->isHit(food)) 
+		return true;
 	return false;
 }
 bool Snake::isHitTail(){

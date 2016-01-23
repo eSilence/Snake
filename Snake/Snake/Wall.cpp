@@ -16,9 +16,16 @@ Wall::Wall(Point point, int countX, int countY, char symbol)
 	listWall.push_back(Line);
 }
 
-bool Wall::isFindSnake(Figure snake){
+bool Wall::isCatchSnake(Figure snake){
 	for(Figure figure : listWall){
 		if (snake.isHit(figure))
+			return true;
+	}
+	return false;
+}
+bool Wall::isHit(Point point){
+	for(Figure figure : listWall){
+		if (figure.isHit(point))
 			return true;
 	}
 	return false;

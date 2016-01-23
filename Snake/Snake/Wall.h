@@ -15,7 +15,8 @@ public:
 	Point getDownLeftPoint();
 	Point getUpRightPoint();
 	Point getDownRightPoint();
-	bool isFindSnake(Figure snake);
+	bool isCatchSnake(Figure snake);
+	bool isHit(Point point);
 	~Wall(void);
 };
 

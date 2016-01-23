@@ -8,7 +8,9 @@ class Food {
 public:
 	Food(Wall *wall);
 	Point createFood();
+	bool isCorrectFood();
 	Point getPoint(){return food;}
+	void draw();
 	~Food(void);
 };
 
