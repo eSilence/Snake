@@ -11,7 +11,7 @@ Point Food::createFood(){
 		Point downRight = wall->getDownRightPoint();
 		int x = rand() % (downRight.getX() - upLeft.getX()) + upLeft.getX();
 		int y = rand() % (downRight.getY() - upLeft.getY()) + upLeft.getY();
-		food = Point(x,y, 'f');
+		food = Point(x,  y, 'f');
 	}
 	while (isCorrectFood());
 	return food;
